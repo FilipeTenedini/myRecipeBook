@@ -18,14 +18,16 @@ function insertRecipeViewList(){
 }
 
 function recipeAreaView(){
-    const recipeInfo = document.querySelector('.infos');
 
-    document.querySelector('.recipe-add-info').classList.add('invisible');
+    const addView = document.querySelector('.recipe-add-info');
+    const infoView = document.querySelector('.infos');
 
-    recipeInfo.classList.add('infos-visible');
-        
+    addView.classList.add('upper');
+    infoView.classList.add('infos-visible');
+    
     setTimeout(()=>{
-        recipeInfo.classList.add('infos-visible-transition');
+        addView.classList.add('invisible');
+        infoView.classList.add('infos-visible-transition');
     },100);
 
 }
@@ -35,6 +37,7 @@ function recipeView(item){
 
     recipesList.forEach((recipe)=>{
         if (recipe.name === nameOf){
+            
             document.querySelector('.infos .add-recipe h2').innerHTML = recipe.name;
             document.querySelector('.infos .ingredients-text').innerHTML = recipe.ingredients;
             document.querySelector('.infos .prepare-text').innerHTML = recipe.prepare;
@@ -42,4 +45,27 @@ function recipeView(item){
     });
 }
 
-export { recipesList, insertRecipeViewList, recipeAreaView, recipeView };
+function returnAddPage(){
+   const addView = document.querySelector('.recipe-add-info');
+   const infoView = document.querySelector('.infos');
+
+   infoView.classList.remove('infos-visible-transition');
+   
+   setTimeout(()=>{
+        infoView.classList.remove('infos-visible');
+        addView.classList.remove('invisible');
+
+        setTimeout(()=>{ 
+            addView.classList.remove('upper');
+        }, 100);
+
+    }, 100);
+}
+
+export { 
+    recipesList, 
+    insertRecipeViewList, 
+    recipeAreaView, 
+    recipeView, 
+    returnAddPage 
+};

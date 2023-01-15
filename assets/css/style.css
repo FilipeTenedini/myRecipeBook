@@ -17,6 +17,7 @@
     --rcpTextAreaPrepare: #DDD;
     --deleteBtn: #F46354;
     --addBtn: #4CAA84;
+    --dltBtn: #F46354;
     --lgtGrey: rgb(218, 218, 218) ;
 }
 .invisible{
@@ -126,6 +127,12 @@ section{
     width: calc(100% - 350px);
     height: 100%;
     margin-left: 350px;
+    transform: translateY(0px);
+    transition: all ease 1s;
+}
+.upper{
+    transform: translateY(-2500px);
+    transition: all ease 1s;
 }
 section .container{
     width: 100%;
@@ -202,17 +209,21 @@ textarea:focus{
     margin-right: 10px;
 }
 
+
+
+
 .infos{
-    transform: translateY(-1000px);
+    transform: translateY(-1500px);
     display: none;
     opacity: 0;
-
 }
 .infos .add-recipe{
     margin-bottom: 50px;
 }
 .infos-visible{
     display: block;
+    opacity: 1;
+    transition: all ease 1s;
 }
 .infos-visible-transition{
     transition: all ease 1s;
@@ -225,10 +236,54 @@ textarea:focus{
 .recipe-infos{
     width: calc(90%);
 }
+.infos .recipe-text-local{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
 .recipe-infos textarea,
 .recipe-infos .name-text{
     background-color: var(--lgtGrey);
     color: var(--rcpAdd);
     font-family: 'roboto';
-    height: auto;
+    height: 150px;
+}
+.recipe-infos textarea::-webkit-scrollbar{
+    width:5px;
+}
+.recipe-infos textarea::-webkit-scrollbar-track {
+    background: var(--aside);
+  }
+.recipe-infos textarea::-webkit-scrollbar-thumb {
+background-color: var(--rcpBg);
+border-radius: 3px;
+}
+.infos .recipe-text-local:last-child{
+    margin-bottom: 38px;
+    display: flex;
+    justify-content: center;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+}
+.deleteBtn,
+.add-moreBtn{
+    width: 200px;
+    height: 40px;
+    margin: 0 20px;
+    font-size: 26px;
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--rcpIon);
+    cursor: pointer;
+}
+.deleteBtn{
+    background-color: var(--dltBtn);
+}
+.add-moreBtn{
+    background-color: var(--addBtn);
 }

@@ -1,4 +1,4 @@
-import { recipesList, insertRecipeViewList, recipeAreaView, recipeView } from '../insertData.js';
+import { recipesList, insertRecipeViewList, recipeAreaView, recipeView, returnAddPage } from '../insertData.js';
 
 document.querySelector('.save-recipe').addEventListener('click', (e)=>{
     e.preventDefault();
@@ -6,7 +6,7 @@ document.querySelector('.save-recipe').addEventListener('click', (e)=>{
     const recipeName = document.querySelector('.name-text').value;
     const recipeIngredients = document.querySelector('.ingredients-text').value;
     const recipePrepare = document.querySelector('.prepare-text').value;
-
+   
     const receita = {
         name: recipeName,
         ingredients: recipeIngredients,
@@ -35,7 +35,7 @@ document.querySelector('.search-bar').addEventListener('keyup',()=>{
     recipesLocal.innerHTML = '';
     
     recipesList.forEach((item)=>{
-        if (item.name.startsWith(key)){
+        if (item.name.includes(key)){
 
             recipesLocal.innerHTML += `
             <div class="recipe">
@@ -46,7 +46,10 @@ document.querySelector('.search-bar').addEventListener('keyup',()=>{
         }
     });
     
-    addRecipeFunction()
+    addRecipeFunction();
 });
 
+document.querySelector('.add-moreBtn').addEventListener('click', () => {
+        returnAddPage();
+});
 export {};
