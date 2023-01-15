@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'roboto';
+}
+:root{
+    --logo: #738D9D;
+    --aside: #28303C;
+    --bgColor: #FFF;
+    --rcpBg: #424954;
+    --rcpName: #738D9D;
+    --rcpAdd: #152036;
+    --rcpIon: #FFF;
+    --rcpTitle: #000;
+    --rcpSubTitle: #000;
+    --rcpTextAreaPrepare: #DDD;
+    --deleteBtn: #F46354;
+    --addBtn: #4CAA84;
+    --lgtGrey: rgb(218, 218, 218) ;
+}
+
+main{
+    width: 335px;
+    height: 100vh;
+    background-color: var(--aside);
+    position: fixed;
+}
+main .container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+.logo{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.logo h1{
+    font-size: 62px;
+    color: var(--logo);
+    font-family: 'Dancing Script';
+    font-weight: bold;
+}
+.recipes{
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.recipe{
+    display: flex;
+    background-color: var(--rcpBg);
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.recipe ion-icon{
+    color: var(--rcpIon);
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.recipe-name{
+    color: var(--rcpName);
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.search-bar{
+    width: 300px;
+    height: 35px;
+    position: absolute;
+    bottom: 20px;
+    background-color: var(--rcpBg);
+    color: var(--rcpIon);
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+.search-bar::placeholder{
+    color: var(--rcpIon);
+}
+input:focus{
+    outline: none;
+}
+section{
+    width: calc(100% - 350px);
+    height: 100%;
+    margin-left: 350px;
+}
+section .container{
+    width: 100%;
+    height: 100%;
+}
+.add-recipe{
+    height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+.add-recipe h2{
+    font-weight: 400;
+    color: var(--rcpAdd);
+    font-family: 'roboto';
+    text-transform: uppercase;
+    font-size: 26px;
+}
+form{
+    width: calc(90%);
+}
+.recipe-name-local,
+.recipe-ingredients-local,
+.recipe-prepare-local{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.recipe-label{
+    font-weight: 400;
+    color: var(--rcpSubTitle);
+    font-family: 'roboto';
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.recipe-name-local input{
+    height: 40px;
+    border: 1px solid var(--lgtGrey);
+}
+textarea{
+    resize: none;
+    border: 1px solid var(--lgtGrey);
+    height: 100px;
+}
+form button{
+    width: 100%;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    color: var(--bgColor);
+    background-color: var(--addBtn);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+form button ion-icon{
+    margin-right: 10px;
+}
