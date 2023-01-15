@@ -1,4 +1,4 @@
-import { recipesList, insertRecipeViewList, recipeAreaView, recipeView, returnAddPage } from '../insertData.js';
+import { recipesList, insertRecipeViewList, recipeAreaView, recipeInfosAdd, returnAddPage } from '../alterData.js';
 
 document.querySelector('.save-recipe').addEventListener('click', (e)=>{
     e.preventDefault();
@@ -24,7 +24,7 @@ function addRecipeFunction() {
     document.querySelectorAll('.recipe').forEach((item)=>{
         item.addEventListener('click', ()=> {
             recipeAreaView();
-            recipeView(item);
+            recipeInfosAdd(item);
         });
     });
 }
@@ -35,7 +35,7 @@ document.querySelector('.search-bar').addEventListener('keyup',()=>{
     recipesLocal.innerHTML = '';
     
     recipesList.forEach((item)=>{
-        if (item.name.includes(key)){
+        if (item.name.toLowerCase().includes(key.toLowerCase())){
 
             recipesLocal.innerHTML += `
             <div class="recipe">
@@ -49,7 +49,15 @@ document.querySelector('.search-bar').addEventListener('keyup',()=>{
     addRecipeFunction();
 });
 
+
+document.querySelector('.deleteBtn').addEventListener('click', (e) => {
+    // returnAddPage();
+    console.log(e.path)
+});
+
 document.querySelector('.add-moreBtn').addEventListener('click', () => {
         returnAddPage();
 });
-export {};
+
+
+export { addRecipeFunction };
