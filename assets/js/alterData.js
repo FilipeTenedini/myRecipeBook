@@ -47,7 +47,7 @@ function recipeAreaView(){
     setTimeout(()=>{
         addView.classList.add('invisible');
         infoView.classList.add('infos-visible-transition');
-    },100);
+    }, 100);
 
 }
 
@@ -79,6 +79,15 @@ function returnAddPage(){
         }, 100);
 
     }, 100);
+
+    restartInputs();
+
+}
+
+function restartInputs(){
+    document.querySelector('.name-text').value = '';
+    document.querySelector('.ingredients-text').value = '';
+    document.querySelector('.prepare-text').value = '';
 }
 
 
@@ -89,5 +98,6 @@ export {
     insertRecipeViewList, 
     recipeAreaView, 
     recipeInfosAdd, 
-    returnAddPage 
+    returnAddPage,
+    restartInputs
 };

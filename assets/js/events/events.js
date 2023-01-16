@@ -1,8 +1,15 @@
-import { recipesList, insertRecipeViewList, recipeAreaView, recipeInfosAdd, returnAddPage } from '../alterData.js';
+import { recipesList, insertRecipeViewList, recipeAreaView, recipeInfosAdd, returnAddPage, restartInputs } from '../alterData.js';
 
 document.querySelector('.save-recipe').addEventListener('click', (e)=>{
     e.preventDefault();
 
+    saveRecipe();
+    
+    insertRecipeViewList();
+    addRecipeFunction();
+});
+
+function saveRecipe(){
     const recipeName = document.querySelector('.name-text').value;
     const recipeIngredients = document.querySelector('.ingredients-text').value;
     const recipePrepare = document.querySelector('.prepare-text').value;
@@ -14,11 +21,9 @@ document.querySelector('.save-recipe').addEventListener('click', (e)=>{
     }
     
     recipesList.push(receita);
-    
-    insertRecipeViewList();
 
-    addRecipeFunction();
-});
+    restartInputs();
+}
 
 function addRecipeFunction() {
     document.querySelectorAll('.recipe').forEach((item)=>{
@@ -50,9 +55,18 @@ document.querySelector('.search-bar').addEventListener('keyup',()=>{
 });
 
 
-document.querySelector('.deleteBtn').addEventListener('click', (e) => {
-    // returnAddPage();
-    console.log(e.path)
+document.querySelector('.deleteBtn').addEventListener('click', () => {
+    const recipeName = document.querySelector('.infos .add-recipe h2');
+
+    recipesList.forEach((item, index)=>{
+        if(item.name == recipeName.innerHTML){
+            recipesList.splice(index,1);
+
+            insertRecipeViewList();
+            returnAddPage();
+            addRecipeFunction();
+        }
+    });
 });
 
 document.querySelector('.add-moreBtn').addEventListener('click', () => {
